@@ -5,7 +5,7 @@
     <section class="relative overflow-hidden mb-2">
       <!-- The video -->
       <video autoplay muted loop class="w-full h-full object-cover absolute z-0">
-        <source src="assets/video/hero.webm" type="video/webm">
+        <source src="~/assets/video/hero.webm" type="video/webm">
       </video>
 
       <div class="bg-gradient absolute w-full h-full z-40 opacity-60"></div>
@@ -40,7 +40,7 @@
           class="mt-6 rounded-tl-2xl rounded-br-2xl shadow-xl bg-secondary transform hover:-translate-y-2 hover:shadow-2xl transition duration-300">
 
           <!-- Image -->
-          <img class="card-img-top rounded-tl-2xl w-full" src="assets/img/1.jpg">
+          <!-- <img class="card-img-top rounded-tl-2xl w-full" src="assets/img/1.jpg"> -->
 
           <!-- Shape -->
           <div class="relative">
@@ -75,7 +75,7 @@
           class="mt-6 rounded-tl-2xl rounded-br-2xl shadow-xl bg-secondary transform hover:-translate-y-2 hover:shadow-2xl transition duration-300">
 
           <!-- Image -->
-          <img class="card-img-top rounded-tl-2xl w-full" src="assets/img/2.jpg">
+          <!-- <img class="card-img-top rounded-tl-2xl w-full" src="assets/img/2.jpg"> -->
 
           <!-- Shape -->
           <div class="relative">
@@ -110,7 +110,7 @@
           class="mt-6 rounded-tl-2xl rounded-br-2xl shadow-xl bg-secondary transform hover:-translate-y-2 hover:shadow-2xl transition duration-300">
 
           <!-- Image -->
-          <img class="card-img-top rounded-tl-2xl w-full" src="assets/img/3.jpg">
+          <!-- <img class="card-img-top rounded-tl-2xl w-full" src="assets/img/3.jpg"> -->
 
           <!-- Shape -->
           <div class="relative">
@@ -145,7 +145,7 @@
           class="mt-6 rounded-tl-2xl rounded-br-2xl shadow-xl bg-secondary transform hover:-translate-y-2 hover:shadow-2xl transition duration-300">
 
           <!-- Image -->
-          <img class="card-img-top rounded-tl-2xl w-full" src="assets/img/2.jpg">
+          <!-- <img class="card-img-top rounded-tl-2xl w-full" src="assets/img/2.jpg"> -->
 
           <!-- Shape -->
           <div class="relative">
@@ -180,7 +180,7 @@
           class="mt-6 rounded-tl-2xl rounded-br-2xl shadow-xl bg-secondary transform hover:-translate-y-2 hover:shadow-2xl transition duration-300">
 
           <!-- Image -->
-          <img class="card-img-top rounded-tl-2xl w-full" src="assets/img/3.jpg">
+          <!-- <img class="card-img-top rounded-tl-2xl w-full" src="assets/img/3.jpg"> -->
 
           <!-- Shape -->
           <div class="relative">
@@ -215,7 +215,7 @@
           class="mt-6 rounded-tl-2xl rounded-br-2xl shadow-xl bg-secondary transform hover:-translate-y-2 hover:shadow-2xl transition duration-300">
 
           <!-- Image -->
-          <img class="card-img-top rounded-tl-2xl w-full" src="assets/img/1.jpg">
+          <!-- <img class="card-img-top rounded-tl-2xl w-full" src="assets/img/1.jpg"> -->
 
           <!-- Shape -->
           <div class="relative">
