@@ -1,5 +1,5 @@
 import { defineNuxtConfig } from 'nuxt'
-import { transformerDirectives, transformerVariantGroup } from 'unocss'
+import { presetAttributify, presetWind, transformerDirectives, transformerVariantGroup } from 'unocss'
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   modules: [
@@ -7,7 +7,10 @@ export default defineNuxtConfig({
     '@unocss/nuxt',
   ],
   unocss: {
-    attributify: true,
+    presets: [
+      presetWind(),
+      presetAttributify(),
+    ],
     transformers: [
       transformerDirectives(),
       transformerVariantGroup(),

@@ -1,6 +1,7 @@
 <script setup>
 import '@unocss/reset/tailwind.css'
 import '~/assets/style.css'
+
 import TheHeader from './components/layouts/TheHeader.vue'
 </script>
 
