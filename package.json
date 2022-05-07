@@ -12,6 +12,8 @@
   "devDependencies": {
     "@antfu/eslint-config": "^0.23.0",
     "@unocss/nuxt": "^0.32.13",
+    "@vueuse/core": "^8.4.2",
+    "@vueuse/nuxt": "^8.4.2",
     "eslint": "^8.14.0",
     "nuxt": "3.0.0-rc.1",
     "typescript": "^4.6.4"
