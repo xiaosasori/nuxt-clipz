@@ -3,8 +3,13 @@
     <!-- Intro Section -->
     <section class="relative overflow-hidden mb-2">
       <!-- The video -->
-      <video autoplay muted loop class="w-full h-full object-cover absolute z-0">
-        <source src="~/assets/video/hero.webm" type="video/webm">
+      <video
+        autoplay
+        muted
+        loop
+        class="w-full h-full object-cover absolute z-0"
+      >
+        <source src="~/assets/video/hero.webm" type="video/webm" />
       </video>
 
       <div class="bg-gradient absolute w-full h-full z-40 opacity-60" />
@@ -33,7 +38,9 @@
 
     <!-- Main Content -->
     <section class="container mx-auto">
-      <h1 class="uppercase text-center text-4xl grid mt-20 mb-12 items-center gap-8 tracking-widest latest">
+      <h1
+        class="uppercase text-center text-4xl grid mt-20 mb-12 items-center gap-8 tracking-widest latest"
+      >
         Latest
       </h1>
 
@@ -43,17 +50,20 @@
           href="#"
           class="mt-6 rounded-tl-2xl rounded-br-2xl shadow-xl bg-secondary transform hover:-translate-y-2 hover:shadow-2xl transition duration-300"
         >
-
           <!-- Image -->
           <!-- <img class="card-img-top rounded-tl-2xl w-full" src="assets/img/1.jpg"> -->
 
           <!-- Shape -->
           <div class="relative">
-            <div class="absolute pointer-events-none bottom-full w-full bg-secondary text-white">
+            <div
+              class="absolute pointer-events-none bottom-full w-full bg-secondary text-white"
+            >
               <div class="absolute bottom-full w-full pb-5 overflow-hidden">
                 <svg
-                  viewBox="0 0 100 50" preserveAspectRatio="none" class="absolute bottom-0 w-full h-full tranform"
-                  style="transform-origin: top center; transform: scale(2);"
+                  viewBox="0 0 100 50"
+                  preserveAspectRatio="none"
+                  class="absolute bottom-0 w-full h-full tranform"
+                  style="transform-origin: top center; transform: scale(2)"
                 >
                   <path d="M0 25h25L75 0h25v50H0z" fill="#283046" />
                 </svg>
@@ -63,36 +73,34 @@
 
           <!-- Body -->
           <div class="p-8">
-
             <!-- Heading -->
-            <h2 class="text-3xl mb-2">
-              Game Highlighting Clip
-            </h2>
+            <h2 class="text-3xl mb-2">Game Highlighting Clip</h2>
 
             <!-- Name & Date -->
             <p class="mb-0">
               Luis Ramirez &#183;
               <span class="text-gray-400">March 31, 2020</span>
             </p>
-
           </div>
-
         </a>
         <a
           href="#"
           class="mt-6 rounded-tl-2xl rounded-br-2xl shadow-xl bg-secondary transform hover:-translate-y-2 hover:shadow-2xl transition duration-300"
         >
-
           <!-- Image -->
           <!-- <img class="card-img-top rounded-tl-2xl w-full" src="assets/img/2.jpg"> -->
 
           <!-- Shape -->
           <div class="relative">
-            <div class="absolute pointer-events-none bottom-full w-full bg-secondary text-white">
+            <div
+              class="absolute pointer-events-none bottom-full w-full bg-secondary text-white"
+            >
               <div class="absolute bottom-full w-full pb-5 overflow-hidden">
                 <svg
-                  viewBox="0 0 100 50" preserveAspectRatio="none" class="absolute bottom-0 w-full h-full tranform"
-                  style="transform-origin: top center; transform: scale(2);"
+                  viewBox="0 0 100 50"
+                  preserveAspectRatio="none"
+                  class="absolute bottom-0 w-full h-full tranform"
+                  style="transform-origin: top center; transform: scale(2)"
                 >
                   <path d="M0 25h25L75 0h25v50H0z" fill="#283046" />
                 </svg>
@@ -102,36 +110,34 @@
 
           <!-- Body -->
           <div class="p-8">
-
             <!-- Heading -->
-            <h2 class="text-3xl mb-2">
-              Game Highlighting Clip
-            </h2>
+            <h2 class="text-3xl mb-2">Game Highlighting Clip</h2>
 
             <!-- Name & Date -->
             <p class="mb-0">
               Luis Ramirez &#183;
               <span class="text-gray-400">March 31, 2020</span>
             </p>
-
           </div>
-
         </a>
         <a
           href="#"
           class="mt-6 rounded-tl-2xl rounded-br-2xl shadow-xl bg-secondary transform hover:-translate-y-2 hover:shadow-2xl transition duration-300"
         >
-
           <!-- Image -->
           <!-- <img class="card-img-top rounded-tl-2xl w-full" src="assets/img/3.jpg"> -->
 
           <!-- Shape -->
           <div class="relative">
-            <div class="absolute pointer-events-none bottom-full w-full bg-secondary text-white">
+            <div
+              class="absolute pointer-events-none bottom-full w-full bg-secondary text-white"
+            >
               <div class="absolute bottom-full w-full pb-5 overflow-hidden">
                 <svg
-                  viewBox="0 0 100 50" preserveAspectRatio="none" class="absolute bottom-0 w-full h-full tranform"
-                  style="transform-origin: top center; transform: scale(2);"
+                  viewBox="0 0 100 50"
+                  preserveAspectRatio="none"
+                  class="absolute bottom-0 w-full h-full tranform"
+                  style="transform-origin: top center; transform: scale(2)"
                 >
                   <path d="M0 25h25L75 0h25v50H0z" fill="#283046" />
                 </svg>
@@ -141,36 +147,34 @@
 
           <!-- Body -->
           <div class="p-8">
-
             <!-- Heading -->
-            <h2 class="text-3xl mb-2">
-              Game Highlighting Clip
-            </h2>
+            <h2 class="text-3xl mb-2">Game Highlighting Clip</h2>
 
             <!-- Name & Date -->
             <p class="mb-0">
               Luis Ramirez &#183;
               <span class="text-gray-400">March 31, 2020</span>
             </p>
-
           </div>
-
         </a>
         <a
           href="#"
           class="mt-6 rounded-tl-2xl rounded-br-2xl shadow-xl bg-secondary transform hover:-translate-y-2 hover:shadow-2xl transition duration-300"
         >
-
           <!-- Image -->
           <!-- <img class="card-img-top rounded-tl-2xl w-full" src="assets/img/2.jpg"> -->
 
           <!-- Shape -->
           <div class="relative">
-            <div class="absolute pointer-events-none bottom-full w-full bg-secondary text-white">
+            <div
+              class="absolute pointer-events-none bottom-full w-full bg-secondary text-white"
+            >
               <div class="absolute bottom-full w-full pb-5 overflow-hidden">
                 <svg
-                  viewBox="0 0 100 50" preserveAspectRatio="none" class="absolute bottom-0 w-full h-full tranform"
-                  style="transform-origin: top center; transform: scale(2);"
+                  viewBox="0 0 100 50"
+                  preserveAspectRatio="none"
+                  class="absolute bottom-0 w-full h-full tranform"
+                  style="transform-origin: top center; transform: scale(2)"
                 >
                   <path d="M0 25h25L75 0h25v50H0z" fill="#283046" />
                 </svg>
@@ -180,36 +184,34 @@
 
           <!-- Body -->
           <div class="p-8">
-
             <!-- Heading -->
-            <h2 class="text-3xl mb-2">
-              Game Highlighting Clip
-            </h2>
+            <h2 class="text-3xl mb-2">Game Highlighting Clip</h2>
 
             <!-- Name & Date -->
             <p class="mb-0">
               Luis Ramirez &#183;
               <span class="text-gray-400">March 31, 2020</span>
             </p>
-
           </div>
-
         </a>
         <a
           href="#"
           class="mt-6 rounded-tl-2xl rounded-br-2xl shadow-xl bg-secondary transform hover:-translate-y-2 hover:shadow-2xl transition duration-300"
         >
-
           <!-- Image -->
           <!-- <img class="card-img-top rounded-tl-2xl w-full" src="assets/img/3.jpg"> -->
 
           <!-- Shape -->
           <div class="relative">
-            <div class="absolute pointer-events-none bottom-full w-full bg-secondary text-white">
+            <div
+              class="absolute pointer-events-none bottom-full w-full bg-secondary text-white"
+            >
               <div class="absolute bottom-full w-full pb-5 overflow-hidden">
                 <svg
-                  viewBox="0 0 100 50" preserveAspectRatio="none" class="absolute bottom-0 w-full h-full tranform"
-                  style="transform-origin: top center; transform: scale(2);"
+                  viewBox="0 0 100 50"
+                  preserveAspectRatio="none"
+                  class="absolute bottom-0 w-full h-full tranform"
+                  style="transform-origin: top center; transform: scale(2)"
                 >
                   <path d="M0 25h25L75 0h25v50H0z" fill="#283046" />
                 </svg>
@@ -219,36 +221,34 @@
 
           <!-- Body -->
           <div class="p-8">
-
             <!-- Heading -->
-            <h2 class="text-3xl mb-2">
-              Game Highlighting Clip
-            </h2>
+            <h2 class="text-3xl mb-2">Game Highlighting Clip</h2>
 
             <!-- Name & Date -->
             <p class="mb-0">
               Luis Ramirez &#183;
               <span class="text-gray-400">March 31, 2020</span>
             </p>
-
           </div>
-
         </a>
         <a
           href="#"
           class="mt-6 rounded-tl-2xl rounded-br-2xl shadow-xl bg-secondary transform hover:-translate-y-2 hover:shadow-2xl transition duration-300"
         >
-
           <!-- Image -->
           <!-- <img class="card-img-top rounded-tl-2xl w-full" src="assets/img/1.jpg"> -->
 
           <!-- Shape -->
           <div class="relative">
-            <div class="absolute pointer-events-none bottom-full w-full bg-secondary text-white">
+            <div
+              class="absolute pointer-events-none bottom-full w-full bg-secondary text-white"
+            >
               <div class="absolute bottom-full w-full pb-5 overflow-hidden">
                 <svg
-                  viewBox="0 0 100 50" preserveAspectRatio="none" class="absolute bottom-0 w-full h-full tranform"
-                  style="transform-origin: top center; transform: scale(2);"
+                  viewBox="0 0 100 50"
+                  preserveAspectRatio="none"
+                  class="absolute bottom-0 w-full h-full tranform"
+                  style="transform-origin: top center; transform: scale(2)"
                 >
                   <path d="M0 25h25L75 0h25v50H0z" fill="#283046" />
                 </svg>
@@ -258,20 +258,15 @@
 
           <!-- Body -->
           <div class="p-8">
-
             <!-- Heading -->
-            <h2 class="text-3xl mb-2">
-              Game Highlighting Clip
-            </h2>
+            <h2 class="text-3xl mb-2">Game Highlighting Clip</h2>
 
             <!-- Name & Date -->
             <p class="mb-0">
               Luis Ramirez &#183;
               <span class="text-gray-400">March 31, 2020</span>
             </p>
-
           </div>
-
         </a>
       </div>
     </section>
