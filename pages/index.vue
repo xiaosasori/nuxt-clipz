@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <!-- Intro Section -->
     <section class="relative overflow-hidden mb-2">
       <!-- The video -->
@@ -8,19 +7,21 @@
         <source src="~/assets/video/hero.webm" type="video/webm">
       </video>
 
-      <div class="bg-gradient absolute w-full h-full z-40 opacity-60"></div>
+      <div class="bg-gradient absolute w-full h-full z-40 opacity-60" />
 
       <div class="w-full h-full absolute z-40">
-        <div class="cube"></div>
-        <div class="cube"></div>
-        <div class="cube"></div>
-        <div class="cube"></div>
-        <div class="cube"></div>
+        <div class="cube" />
+        <div class="cube" />
+        <div class="cube" />
+        <div class="cube" />
+        <div class="cube" />
       </div>
 
       <div class="container mx-auto relative z-50">
         <div class="text-center px-20 py-60 w-full md:w-8/12 mx-auto">
-          <h1 class="text-7xl font-bold uppercase mb-2">Clip it and ship it!</h1>
+          <h1 class="text-7xl font-bold uppercase mb-2">
+            Clip it and ship it!
+          </h1>
           <p>
             The #1 app to watch, clip, and share your awesome gaming moments
             with your friends and the world! With our world-class tools, we make
@@ -32,12 +33,16 @@
 
     <!-- Main Content -->
     <section class="container mx-auto">
-      <h1 class="uppercase text-center text-4xl grid mt-20 mb-12 items-center gap-8 tracking-widest latest">Latest</h1>
+      <h1 class="uppercase text-center text-4xl grid mt-20 mb-12 items-center gap-8 tracking-widest latest">
+        Latest
+      </h1>
 
       <!-- Clips List -->
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
-        <a href="#"
-          class="mt-6 rounded-tl-2xl rounded-br-2xl shadow-xl bg-secondary transform hover:-translate-y-2 hover:shadow-2xl transition duration-300">
+        <a
+          href="#"
+          class="mt-6 rounded-tl-2xl rounded-br-2xl shadow-xl bg-secondary transform hover:-translate-y-2 hover:shadow-2xl transition duration-300"
+        >
 
           <!-- Image -->
           <!-- <img class="card-img-top rounded-tl-2xl w-full" src="assets/img/1.jpg"> -->
@@ -46,9 +51,11 @@
           <div class="relative">
             <div class="absolute pointer-events-none bottom-full w-full bg-secondary text-white">
               <div class="absolute bottom-full w-full pb-5 overflow-hidden">
-                <svg viewBox="0 0 100 50" preserveAspectRatio="none" class="absolute bottom-0 w-full h-full tranform"
-                  style="transform-origin: top center; transform: scale(2);">
-                  <path d="M0 25h25L75 0h25v50H0z" fill="#283046"></path>
+                <svg
+                  viewBox="0 0 100 50" preserveAspectRatio="none" class="absolute bottom-0 w-full h-full tranform"
+                  style="transform-origin: top center; transform: scale(2);"
+                >
+                  <path d="M0 25h25L75 0h25v50H0z" fill="#283046" />
                 </svg>
               </div>
             </div>
@@ -71,8 +78,10 @@
           </div>
 
         </a>
-        <a href="#"
-          class="mt-6 rounded-tl-2xl rounded-br-2xl shadow-xl bg-secondary transform hover:-translate-y-2 hover:shadow-2xl transition duration-300">
+        <a
+          href="#"
+          class="mt-6 rounded-tl-2xl rounded-br-2xl shadow-xl bg-secondary transform hover:-translate-y-2 hover:shadow-2xl transition duration-300"
+        >
 
           <!-- Image -->
           <!-- <img class="card-img-top rounded-tl-2xl w-full" src="assets/img/2.jpg"> -->
@@ -81,9 +90,11 @@
           <div class="relative">
             <div class="absolute pointer-events-none bottom-full w-full bg-secondary text-white">
               <div class="absolute bottom-full w-full pb-5 overflow-hidden">
-                <svg viewBox="0 0 100 50" preserveAspectRatio="none" class="absolute bottom-0 w-full h-full tranform"
-                  style="transform-origin: top center; transform: scale(2);">
-                  <path d="M0 25h25L75 0h25v50H0z" fill="#283046"></path>
+                <svg
+                  viewBox="0 0 100 50" preserveAspectRatio="none" class="absolute bottom-0 w-full h-full tranform"
+                  style="transform-origin: top center; transform: scale(2);"
+                >
+                  <path d="M0 25h25L75 0h25v50H0z" fill="#283046" />
                 </svg>
               </div>
             </div>
@@ -106,8 +117,10 @@
           </div>
 
         </a>
-        <a href="#"
-          class="mt-6 rounded-tl-2xl rounded-br-2xl shadow-xl bg-secondary transform hover:-translate-y-2 hover:shadow-2xl transition duration-300">
+        <a
+          href="#"
+          class="mt-6 rounded-tl-2xl rounded-br-2xl shadow-xl bg-secondary transform hover:-translate-y-2 hover:shadow-2xl transition duration-300"
+        >
 
           <!-- Image -->
           <!-- <img class="card-img-top rounded-tl-2xl w-full" src="assets/img/3.jpg"> -->
@@ -116,9 +129,11 @@
           <div class="relative">
             <div class="absolute pointer-events-none bottom-full w-full bg-secondary text-white">
               <div class="absolute bottom-full w-full pb-5 overflow-hidden">
-                <svg viewBox="0 0 100 50" preserveAspectRatio="none" class="absolute bottom-0 w-full h-full tranform"
-                  style="transform-origin: top center; transform: scale(2);">
-                  <path d="M0 25h25L75 0h25v50H0z" fill="#283046"></path>
+                <svg
+                  viewBox="0 0 100 50" preserveAspectRatio="none" class="absolute bottom-0 w-full h-full tranform"
+                  style="transform-origin: top center; transform: scale(2);"
+                >
+                  <path d="M0 25h25L75 0h25v50H0z" fill="#283046" />
                 </svg>
               </div>
             </div>
@@ -141,8 +156,10 @@
           </div>
 
         </a>
-        <a href="#"
-          class="mt-6 rounded-tl-2xl rounded-br-2xl shadow-xl bg-secondary transform hover:-translate-y-2 hover:shadow-2xl transition duration-300">
+        <a
+          href="#"
+          class="mt-6 rounded-tl-2xl rounded-br-2xl shadow-xl bg-secondary transform hover:-translate-y-2 hover:shadow-2xl transition duration-300"
+        >
 
           <!-- Image -->
           <!-- <img class="card-img-top rounded-tl-2xl w-full" src="assets/img/2.jpg"> -->
@@ -151,9 +168,11 @@
           <div class="relative">
             <div class="absolute pointer-events-none bottom-full w-full bg-secondary text-white">
               <div class="absolute bottom-full w-full pb-5 overflow-hidden">
-                <svg viewBox="0 0 100 50" preserveAspectRatio="none" class="absolute bottom-0 w-full h-full tranform"
-                  style="transform-origin: top center; transform: scale(2);">
-                  <path d="M0 25h25L75 0h25v50H0z" fill="#283046"></path>
+                <svg
+                  viewBox="0 0 100 50" preserveAspectRatio="none" class="absolute bottom-0 w-full h-full tranform"
+                  style="transform-origin: top center; transform: scale(2);"
+                >
+                  <path d="M0 25h25L75 0h25v50H0z" fill="#283046" />
                 </svg>
               </div>
             </div>
@@ -176,8 +195,10 @@
           </div>
 
         </a>
-        <a href="#"
-          class="mt-6 rounded-tl-2xl rounded-br-2xl shadow-xl bg-secondary transform hover:-translate-y-2 hover:shadow-2xl transition duration-300">
+        <a
+          href="#"
+          class="mt-6 rounded-tl-2xl rounded-br-2xl shadow-xl bg-secondary transform hover:-translate-y-2 hover:shadow-2xl transition duration-300"
+        >
 
           <!-- Image -->
           <!-- <img class="card-img-top rounded-tl-2xl w-full" src="assets/img/3.jpg"> -->
@@ -186,9 +207,11 @@
           <div class="relative">
             <div class="absolute pointer-events-none bottom-full w-full bg-secondary text-white">
               <div class="absolute bottom-full w-full pb-5 overflow-hidden">
-                <svg viewBox="0 0 100 50" preserveAspectRatio="none" class="absolute bottom-0 w-full h-full tranform"
-                  style="transform-origin: top center; transform: scale(2);">
-                  <path d="M0 25h25L75 0h25v50H0z" fill="#283046"></path>
+                <svg
+                  viewBox="0 0 100 50" preserveAspectRatio="none" class="absolute bottom-0 w-full h-full tranform"
+                  style="transform-origin: top center; transform: scale(2);"
+                >
+                  <path d="M0 25h25L75 0h25v50H0z" fill="#283046" />
                 </svg>
               </div>
             </div>
@@ -211,8 +234,10 @@
           </div>
 
         </a>
-        <a href="#"
-          class="mt-6 rounded-tl-2xl rounded-br-2xl shadow-xl bg-secondary transform hover:-translate-y-2 hover:shadow-2xl transition duration-300">
+        <a
+          href="#"
+          class="mt-6 rounded-tl-2xl rounded-br-2xl shadow-xl bg-secondary transform hover:-translate-y-2 hover:shadow-2xl transition duration-300"
+        >
 
           <!-- Image -->
           <!-- <img class="card-img-top rounded-tl-2xl w-full" src="assets/img/1.jpg"> -->
@@ -221,9 +246,11 @@
           <div class="relative">
             <div class="absolute pointer-events-none bottom-full w-full bg-secondary text-white">
               <div class="absolute bottom-full w-full pb-5 overflow-hidden">
-                <svg viewBox="0 0 100 50" preserveAspectRatio="none" class="absolute bottom-0 w-full h-full tranform"
-                  style="transform-origin: top center; transform: scale(2);">
-                  <path d="M0 25h25L75 0h25v50H0z" fill="#283046"></path>
+                <svg
+                  viewBox="0 0 100 50" preserveAspectRatio="none" class="absolute bottom-0 w-full h-full tranform"
+                  style="transform-origin: top center; transform: scale(2);"
+                >
+                  <path d="M0 25h25L75 0h25v50H0z" fill="#283046" />
                 </svg>
               </div>
             </div>
