@@ -245,3 +245,7 @@ body {
     opacity: 0;
   }
 }
+
+.formkit-message {
+  @apply text-red-500;
+}
