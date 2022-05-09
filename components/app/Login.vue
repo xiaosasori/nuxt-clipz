@@ -35,8 +35,7 @@ async function login(credentials, node) {
       placeholder="Enter Email"
       name="email"
       label-class="inline-block mb-2"
-      input-class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition
-              duration-500 focus:(outline-none border-indigo-400) rounded bg-transparent"
+      input-class="input"
       validation="required|email"
     />
     <!-- Password -->
@@ -47,8 +46,7 @@ async function login(credentials, node) {
       placeholder="Enter Password"
       name="password"
       label-class="inline-block mb-2"
-      input-class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition
-              duration-500 focus:(outline-none border-indigo-400) rounded bg-transparent"
+      input-class="input"
       validation="required"
     />
   </FormKit>

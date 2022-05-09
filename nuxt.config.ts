@@ -19,5 +19,11 @@ export default defineNuxtConfig({
   unocss: {
     presets: [presetWind(), presetAttributify()],
     transformers: [transformerDirectives(), transformerVariantGroup()],
+    shortcuts: [
+      {
+        input:
+          'block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition duration-500 focus:(outline-none border-indigo-400) rounded bg-transparent',
+      },
+    ],
   },
 })

@@ -46,8 +46,7 @@ async function register(credentials, node) {
       placeholder="Enter Name"
       name="name"
       label-class="inline-block mb-2"
-      input-class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition
-              duration-500 focus:(outline-none border-indigo-400) rounded bg-transparent"
+      input-class="input"
       validation="required|length:3"
     />
     <!-- Email -->
@@ -57,8 +56,7 @@ async function register(credentials, node) {
       placeholder="Enter Email"
       name="email"
       label-class="inline-block mb-2"
-      input-class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition
-              duration-500 focus:(outline-none border-indigo-400) rounded bg-transparent"
+      input-class="input"
       validation="required|email"
     />
     <!-- Age -->
@@ -69,8 +67,7 @@ async function register(credentials, node) {
       placeholder="Enter Age"
       name="age"
       label-class="inline-block mb-2"
-      input-class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition
-              duration-500 focus:(outline-none border-indigo-400) rounded bg-transparent"
+      input-class="input"
       :plugins="[castNumber]"
       validation="required|min:18|max:120"
     />
@@ -82,8 +79,7 @@ async function register(credentials, node) {
       placeholder="Enter Password"
       name="password"
       label-class="inline-block mb-2"
-      input-class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition
-              duration-500 focus:(outline-none border-indigo-400) rounded bg-transparent"
+      input-class="input"
       validation="required"
     />
     <!-- Confirm Password -->
@@ -94,8 +90,7 @@ async function register(credentials, node) {
       placeholder="Confirm Password"
       name="password_confirm"
       label-class="inline-block mb-2"
-      input-class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition
-              duration-500 focus:(outline-none border-indigo-400) rounded bg-transparent"
+      input-class="input"
       validation="required|confirm"
     />
     <!-- Phone Number -->
@@ -105,8 +100,7 @@ async function register(credentials, node) {
       placeholder="Enter Phone Number"
       name="phone_number"
       label-class="inline-block mb-2"
-      input-class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition
-              duration-500 focus:(outline-none border-indigo-400) rounded bg-transparent"
+      input-class="input"
       validation="required"
     />
   </FormKit>
