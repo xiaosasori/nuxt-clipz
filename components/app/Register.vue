@@ -2,13 +2,22 @@
 const castNumber = (node) => {
   node.hook.input((value, next) => next(Number(value)))
 }
+
+async function register(credentials) {}
 </script>
 
 <template>
   <!-- <app-alert *ngIf="showAlert" [color]="alertColor">
   {{ alertMsg }}
 </app-alert> -->
-  <form @submit.prevent>
+  <FormKit
+    type="form"
+    :submit-attrs="{
+      inputClass:
+        'block w-full bg-indigo-400 text-white py-1.5 px-3 rounded transition hover:bg-indigo-500 disabled:(opacity-50 bg-indigo-400)',
+    }"
+    @submit="register"
+  >
     <!-- Name -->
     <FormKit
       outer-class="mb-3"
@@ -79,11 +88,5 @@ const castNumber = (node) => {
               duration-500 focus:(outline-none border-indigo-400) rounded bg-transparent"
       validation="required"
     />
-    <button
-      type="submit"
-      class="block w-full bg-indigo-400 text-white py-1.5 px-3 rounded transition hover:bg-indigo-500 disabled:(opacity-50 bg-indigo-400)"
-    >
-      Submit
-    </button>
-  </form>
+  </FormKit>
 </template>

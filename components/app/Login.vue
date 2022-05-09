@@ -1,30 +1,40 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+async function login(credentials) {
+  // console.log(credentials)
+}
+</script>
 
 <template>
-  <form>
+  <FormKit
+    type="form"
+    :submit-attrs="{
+      inputClass:
+        'block w-full bg-indigo-400 text-white py-1.5 px-3 rounded transition hover:bg-indigo-500',
+    }"
+    @submit="login"
+  >
     <!-- Email -->
-    <div class="mb-3">
-      <label class="inline-block mb-2">Email</label>
-      <input
-        type="email"
-        class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400"
-        placeholder="Enter Email"
-      />
-    </div>
+    <FormKit
+      outer-class="mb-3"
+      label="Email"
+      placeholder="Enter Email"
+      name="email"
+      label-class="inline-block mb-2"
+      input-class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition
+              duration-500 focus:(outline-none border-indigo-400) rounded bg-transparent"
+      validation="required|email"
+    />
     <!-- Password -->
-    <div class="mb-3">
-      <label class="inline-block mb-2">Password</label>
-      <input
-        type="password"
-        class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400"
-        placeholder="Password"
-      />
-    </div>
-    <button
-      type="submit"
-      class="block w-full bg-indigo-400 text-white py-1.5 px-3 rounded transition hover:bg-indigo-500"
-    >
-      Submit
-    </button>
-  </form>
+    <FormKit
+      type="password"
+      outer-class="mb-3"
+      label="Password"
+      placeholder="Enter Password"
+      name="password"
+      label-class="inline-block mb-2"
+      input-class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition
+              duration-500 focus:(outline-none border-indigo-400) rounded bg-transparent"
+      validation="required"
+    />
+  </FormKit>
 </template>
