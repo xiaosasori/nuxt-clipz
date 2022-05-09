@@ -15,7 +15,12 @@ function logout() {
   <header id="header" class="bg-secondary">
     <nav class="container mx-auto flex justify-start items-center py-8 px-4">
       <!-- App Name -->
-      <a class="text-3xl text-indigo-400 font-bold uppercase mr-4">Clips</a>
+      <NuxtLink
+        to="/"
+        class="text-3xl text-indigo-400 font-bold uppercase mr-4"
+      >
+        Clips
+      </NuxtLink>
 
       <div class="flex flex-grow items-center">
         <!-- Primary Navigation -->
@@ -28,17 +33,31 @@ function logout() {
           </li>
           <template v-else>
             <li>
-              <a class="px-2" href="#">Manage</a>
+              <NuxtLink
+                to="/manage"
+                active-class="text-indigo-400"
+                class="px-2"
+              >
+                Manage
+              </NuxtLink>
             </li>
             <li>
-              <a class="px-2" href="#">Upload</a>
+              <NuxtLink
+                to="/upload"
+                active-class="text-indigo-400"
+                class="px-2"
+              >
+                Upload
+              </NuxtLink>
             </li>
             <li>
               <button class="px-2" @click="logout">Logout</button>
             </li>
           </template>
           <li>
-            <a class="px-2" href="about.html">About</a>
+            <NuxtLink active-class="text-indigo-400" class="px-2" to="/about">
+              About
+            </NuxtLink>
           </li>
         </ul>
       </div>
