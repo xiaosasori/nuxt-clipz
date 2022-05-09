@@ -6,8 +6,10 @@ const isOpen = ref(false)
 
 const { $firebaseAuth } = useNuxtApp()
 const user = useUser()
+const router = useRouter()
 function logout() {
   signOut($firebaseAuth)
+  router.replace('/')
 }
 </script>
 
