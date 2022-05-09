@@ -1,8 +1,27 @@
 <script setup>
 import '@unocss/reset/tailwind.css'
+import { onAuthStateChanged } from 'firebase/auth'
 import '~/assets/style.css'
 
 import TheHeader from './components/layouts/TheHeader.vue'
+
+const { $firebaseAuth } = useNuxtApp()
+const user = useUser()
+
+let unsubscribe
+onMounted(() => {
+  unsubscribe = onAuthStateChanged($firebaseAuth, (_user) => {
+    if (_user) {
+      user.value = _user
+    } else {
+      user.value = null
+    }
+  })
+})
+
+onBeforeUnmount(() => {
+  unsubscribe()
+})
 </script>
 
 <template>

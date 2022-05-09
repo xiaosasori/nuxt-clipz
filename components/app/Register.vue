@@ -1,15 +1,36 @@
 <script lang="ts" setup>
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
+import { doc, setDoc } from 'firebase/firestore'
+
+const emit = defineEmits(['close'])
+const { $firebaseAuth, $firebaseDb } = useNuxtApp()
+
 const castNumber = (node) => {
   node.hook.input((value, next) => next(Number(value)))
 }
 
-async function register(credentials) {}
+async function register(credentials, node) {
+  try {
+    const userCred = await createUserWithEmailAndPassword(
+      $firebaseAuth,
+      credentials.email,
+      credentials.password
+    )
+    delete credentials.password_confirm
+    await Promise.all([
+      setDoc(doc($firebaseDb, 'users', userCred.user.uid), credentials),
+      updateProfile($firebaseAuth.currentUser, {
+        displayName: credentials.name,
+      }),
+    ])
+    emit('close')
+  } catch (error) {
+    node.setErrors([error.message])
+  }
+}
 </script>
 
 <template>
-  <!-- <app-alert *ngIf="showAlert" [color]="alertColor">
-  {{ alertMsg }}
-</app-alert> -->
   <FormKit
     type="form"
     :submit-attrs="{
@@ -27,7 +48,7 @@ async function register(credentials) {}
       label-class="inline-block mb-2"
       input-class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition
               duration-500 focus:(outline-none border-indigo-400) rounded bg-transparent"
-      validation="required|min:3"
+      validation="required|length:3"
     />
     <!-- Email -->
     <FormKit
@@ -71,11 +92,11 @@ async function register(credentials) {}
       outer-class="mb-3"
       label="Confirm Password"
       placeholder="Confirm Password"
-      name="confirm_password"
+      name="password_confirm"
       label-class="inline-block mb-2"
       input-class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition
               duration-500 focus:(outline-none border-indigo-400) rounded bg-transparent"
-      validation="required"
+      validation="required|confirm"
     />
     <!-- Phone Number -->
     <FormKit

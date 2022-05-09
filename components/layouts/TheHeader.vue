@@ -1,7 +1,14 @@
 <script setup>
+import { signOut } from 'firebase/auth'
 import AuthModal from '../app/AuthModal.vue'
 
 const isOpen = ref(false)
+
+const { $firebaseAuth } = useNuxtApp()
+const user = useUser()
+function logout() {
+  signOut($firebaseAuth)
+}
 </script>
 
 <template>
@@ -14,17 +21,22 @@ const isOpen = ref(false)
         <!-- Primary Navigation -->
         <ul class="flex flex-row mt-1">
           <!-- Navigation Links -->
-          <li>
+          <li v-if="!user">
             <button class="px-2" @click="isOpen = true">
               Login / Register
             </button>
           </li>
-          <li>
-            <a class="px-2" href="#">Manage</a>
-          </li>
-          <li>
-            <a class="px-2" href="#">Upload</a>
-          </li>
+          <template v-else>
+            <li>
+              <a class="px-2" href="#">Manage</a>
+            </li>
+            <li>
+              <a class="px-2" href="#">Upload</a>
+            </li>
+            <li>
+              <button class="px-2" @click="logout">Logout</button>
+            </li>
+          </template>
           <li>
             <a class="px-2" href="about.html">About</a>
           </li>

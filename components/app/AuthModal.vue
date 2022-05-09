@@ -18,10 +18,10 @@ const modelValue = useVModel(props, 'modelValue', emit)
 
     <BTab :tabs="tabs">
       <template #tab-1>
-        <Login />
+        <Login @close="modelValue = false" />
       </template>
       <template #tab-2>
-        <Register />
+        <Register @close="modelValue = false" />
       </template>
     </BTab>
   </BModal>

@@ -1,6 +1,21 @@
 <script lang="ts" setup>
-async function login(credentials) {
-  // console.log(credentials)
+import { signInWithEmailAndPassword } from 'firebase/auth'
+
+const emit = defineEmits(['close'])
+
+const { $firebaseAuth } = useNuxtApp()
+async function login(credentials, node) {
+  try {
+    await signInWithEmailAndPassword(
+      $firebaseAuth,
+      credentials.email,
+      credentials.password
+    )
+
+    emit('close')
+  } catch (error) {
+    node.setErrors([error.message])
+  }
 }
 </script>
 
