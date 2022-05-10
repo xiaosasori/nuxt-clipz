@@ -1,4 +1,7 @@
 <script lang="ts" setup>
+definePageMeta({
+  middleware: ['auth'],
+})
 const videoOrder = ref(1)
 const clips = [{ title: 'test' }]
 function openModal(clip) {}
