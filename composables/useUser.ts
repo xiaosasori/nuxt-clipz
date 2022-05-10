@@ -1,3 +1,3 @@
 export default function () {
-  return useState('user', () => null)
+  return useState<User>('user', () => null)
 }
