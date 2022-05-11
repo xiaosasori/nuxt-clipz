@@ -21,7 +21,11 @@ let uploadTask: UploadTask | undefined
 async function uploadFile(credentials: any) {
   isUploading.value = true
   const file = (selectedClip.value[0] as any).file as File
-  const strRef = storageRef($firebaseStorage, `clips/${file.name}`)
+  const extension = file.type.split('/').pop()
+  const fileName = `${
+    Math.random().toString(36).slice(2) + Date.now().toString(36)
+  }.${extension}`
+  const strRef = storageRef($firebaseStorage, `clips/${fileName}`)
   uploadTask = uploadBytesResumable(strRef, file)
   uploadTask.on(
     'state_changed',
@@ -51,8 +55,7 @@ async function uploadFile(credentials: any) {
             uid: $firebaseAuth.currentUser?.uid,
             displayName: $firebaseAuth.currentUser?.displayName,
             title: credentials.title,
-            fileName:
-              Math.random().toString(36).slice(2) + Date.now().toString(36),
+            fileName,
             url: downloadURL,
             timestamp: serverTimestamp(),
           }
