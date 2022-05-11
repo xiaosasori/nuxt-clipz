@@ -1,12 +1,45 @@
 <script lang="ts" setup>
+import {
+  collection,
+  deleteDoc,
+  doc,
+  getDocs,
+  orderBy,
+  query,
+  where,
+} from 'firebase/firestore'
+import { deleteObject, ref as storageRef } from 'firebase/storage'
+import type { Clip } from '~~/types/Clip'
+
 definePageMeta({
   middleware: ['auth'],
 })
-const videoOrder = ref(1)
-const clips = [{ title: 'test' }]
+const { $firebaseAuth, $firebaseDb, $firebaseStorage } = useNuxtApp()
+const clips = ref<Clip[]>([])
+const videoOrder = ref<'asc' | 'desc'>('desc')
+
+onBeforeMount(async () => {
+  const q = query(
+    collection($firebaseDb, 'clips'),
+    where('uid', '==', $firebaseAuth.currentUser?.uid),
+    orderBy('timestamp', videoOrder.value)
+  )
+  const querySnapshot = await getDocs(q)
+  querySnapshot.forEach((doc) => {
+    clips.value.push({ id: doc.id, ...doc.data() } as Clip)
+  })
+})
+
 function openModal(clip) {}
 
-function deleteClip(clip) {}
+async function deleteClip(clip: Clip, index: number) {
+  const strRef = storageRef($firebaseStorage, `clips/${clip.fileName}`)
+  await Promise.all([
+    deleteObject(strRef),
+    deleteDoc(doc($firebaseDb, 'clips', clip.id)),
+  ])
+  clips.value.splice(index, 1)
+}
 </script>
 
 <template>
@@ -26,8 +59,8 @@ function deleteClip(clip) {}
           v-model="videoOrder"
           class="text-black px-8 text-xl outline-none appearance-none"
         >
-          <option :value="1">Recent Uploads</option>
-          <option :value="2">Oldest Uploads</option>
+          <option value="desc">Recent Uploads</option>
+          <option value="asc">Oldest Uploads</option>
         </select>
       </div>
     </section>
@@ -73,7 +106,7 @@ function deleteClip(clip) {}
             </button>
             <button
               class="flex-1 p-2 rounded-br-2xl transition hover:text-indigo-400"
-              @click="deleteClip(clip)"
+              @click="deleteClip(clip, index)"
             >
               <span class="material-icons text-base">delete</span>
             </button>
