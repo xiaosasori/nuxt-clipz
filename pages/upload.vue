@@ -16,11 +16,11 @@ const uploadProgress = ref(0)
 const isError = ref(false)
 const isSuccess = ref(false)
 const message = ref('')
-let uploadTask: UploadTask
+let uploadTask: UploadTask | undefined
 
-async function uploadFile(credentials) {
+async function uploadFile(credentials: any) {
   isUploading.value = true
-  const file = selectedClip.value[0].file as File
+  const file = (selectedClip.value[0] as any).file as File
   const strRef = storageRef($firebaseStorage, `clips/${file.name}`)
   uploadTask = uploadBytesResumable(strRef, file)
   uploadTask.on(
@@ -40,7 +40,7 @@ async function uploadFile(credentials) {
     },
     () => {
       // Upload completed successfully, now we can get the download URL
-      getDownloadURL(uploadTask.snapshot.ref)
+      getDownloadURL(uploadTask!.snapshot.ref)
         .then((downloadURL) => {
           isUploading.value = false
           isSuccess.value = true
@@ -48,8 +48,8 @@ async function uploadFile(credentials) {
             'Success! Your clip is now ready to share with the world.'
           // store clip to firestore
           const clip = {
-            uid: $firebaseAuth.currentUser.uid,
-            displayName: $firebaseAuth.currentUser.displayName,
+            uid: $firebaseAuth.currentUser?.uid,
+            displayName: $firebaseAuth.currentUser?.displayName,
             title: credentials.title,
             fileName:
               Math.random().toString(36).slice(2) + Date.now().toString(36),
