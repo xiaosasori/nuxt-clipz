@@ -30,7 +30,17 @@ onBeforeMount(async () => {
   })
 })
 
-function openModal(clip) {}
+const isOpen = ref(false)
+const selectedClip = ref<Clip>()
+function openModal(clip: Clip) {
+  selectedClip.value = clip
+  isOpen.value = true
+}
+
+function updateSuccess(title: string) {
+  selectedClip.value!.title = title
+  isOpen.value = false
+}
 
 async function deleteClip(clip: Clip, index: number) {
   const strRef = storageRef($firebaseStorage, `clips/${clip.fileName}`)
@@ -115,6 +125,11 @@ async function deleteClip(clip: Clip, index: number) {
       </div>
     </div>
 
-    <!-- <app-edit [activeClip]="activeClip" (update)="update($event)"></app-edit> -->
+    <ModalEditVideo
+      v-if="selectedClip"
+      v-model="isOpen"
+      :clip="selectedClip"
+      @success="updateSuccess"
+    />
   </div>
 </template>
