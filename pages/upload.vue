@@ -11,7 +11,7 @@ import useFfmpeg from '~~/composables/useFfmpeg'
 
 const router = useRouter()
 const { $firebaseStorage, $firebaseAuth, $firebaseDb } = useNuxtApp()
-const selectedClip = ref([])
+const selectedClip = ref<{ url: string; file: File }[]>([])
 const isUploading = ref(false)
 const uploadProgress = ref(0)
 const isError = ref(false)
@@ -76,8 +76,14 @@ onBeforeUnmount(() => {
 })
 
 const ffmpegService = useFfmpeg()
+const screenshots = ref()
 onBeforeMount(() => {
   ffmpegService.init()
+})
+watch(selectedClip, async (newVal) => {
+  if (newVal.length > 0) {
+    screenshots.value = await ffmpegService.getScreenshots(newVal[0].file)
+  }
 })
 </script>
 
@@ -123,14 +129,12 @@ onBeforeMount(() => {
             <!-- Screenshots -->
             <h2 class="mb-4 text-xl">Select a Thumbnail</h2>
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
-              <div class="border-8 cursor-pointer border-green-400">
-                <img src="assets/img/1.jpg" />
-              </div>
-              <div class="border-8 cursor-pointer border-transparent">
-                <img src="assets/img/2.jpg" />
-              </div>
-              <div class="border-8 cursor-pointer border-transparent">
-                <img src="assets/img/3.jpg" />
+              <div
+                v-for="screenshot in screenshots"
+                :key="screenshot"
+                class="border-8 cursor-pointer border-green-400"
+              >
+                <img :src="screenshot" />
               </div>
             </div>
 
