@@ -7,6 +7,7 @@ import {
   uploadBytesResumable,
 } from 'firebase/storage'
 import BUpload from '~/components/base/BUpload.vue'
+import useFfmpeg from '~~/composables/useFfmpeg'
 
 const router = useRouter()
 const { $firebaseStorage, $firebaseAuth, $firebaseDb } = useNuxtApp()
@@ -73,67 +74,79 @@ async function uploadFile(credentials: any) {
 onBeforeUnmount(() => {
   uploadTask?.cancel()
 })
+
+const ffmpegService = useFfmpeg()
+onBeforeMount(() => {
+  ffmpegService.init()
+})
 </script>
 
 <template>
   <section class="container mx-auto my-8 bg-secondary p-6">
     <div class="rounded relative flex flex-col">
       <div class="font-bold mb-6">Upload Video</div>
-
-      <!-- Upload Dropbox -->
-      <BUpload
-        v-if="selectedClip.length === 0"
-        v-model:files="selectedClip"
-        outer-class="w-full px-10 py-40 rounded text-center cursor-pointer border border-dashed border-gray-400 transition duration-500 hover:text-white hover:bg-indigo-400 hover:border-indigo-400 hover:border-solid text-xl"
-        accept="video/*"
-        outer-dragging-over-class="border-indigo-400 border-solid"
-        input-dragging-over-class="bg-indigo-400"
-      />
-      <!-- Video Editor -->
-      <div v-else>
-        <div class="text-white text-center font-bold p-4 mb-4 rounded-md">
-          <p v-if="isUploading">{{ uploadProgress }} %</p>
-          <p :class="{ isError: 'bg-red-500', isSuccess: 'bg-green-500' }">
-            {{ message }}
-          </p>
-        </div>
-        <!-- Form -->
-        <FormKit
-          type="form"
-          submit-label="Publish"
-          :submit-attrs="{
-            outerClass: 'mt-4 text-right',
-            inputClass:
-              'inline-flex justify-center py-2 px-4 border border-transparent shadow-sm rounded-md text-white bg-indigo-600 focus:outline-none',
-          }"
-          @submit="uploadFile"
-        >
-          <!-- Screenshots -->
-          <h2 class="mb-4 text-xl">Select a Thumbnail</h2>
-          <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
-            <div class="border-8 cursor-pointer border-green-400">
-              <img src="assets/img/1.jpg" />
-            </div>
-            <div class="border-8 cursor-pointer border-transparent">
-              <img src="assets/img/2.jpg" />
-            </div>
-            <div class="border-8 cursor-pointer border-transparent">
-              <img src="assets/img/3.jpg" />
-            </div>
-          </div>
-
-          <!-- Title -->
-          <FormKit
-            outer-class="mt-4"
-            label="Title"
-            placeholder="Enter Title"
-            name="title"
-            label-class="block text-xl mb-4"
-            input-class="input"
-            validation="required"
-          />
-        </FormKit>
+      <div
+        v-if="!ffmpegService.isReady"
+        class="material-icons text-center text-6xl p-8 animate-spin"
+      >
+        settings
       </div>
+      <template v-else>
+        <!-- Upload Dropbox -->
+        <BUpload
+          v-if="selectedClip.length === 0"
+          v-model:files="selectedClip"
+          outer-class="w-full px-10 py-40 rounded text-center cursor-pointer border border-dashed border-gray-400 transition duration-500 hover:text-white hover:bg-indigo-400 hover:border-indigo-400 hover:border-solid text-xl"
+          accept="video/*"
+          outer-dragging-over-class="border-indigo-400 border-solid"
+          input-dragging-over-class="bg-indigo-400"
+        />
+        <!-- Video Editor -->
+        <div v-else>
+          <div class="text-white text-center font-bold p-4 mb-4 rounded-md">
+            <p v-if="isUploading">{{ uploadProgress }} %</p>
+            <p :class="{ isError: 'bg-red-500', isSuccess: 'bg-green-500' }">
+              {{ message }}
+            </p>
+          </div>
+          <!-- Form -->
+          <FormKit
+            type="form"
+            submit-label="Publish"
+            :submit-attrs="{
+              outerClass: 'mt-4 text-right',
+              inputClass:
+                'inline-flex justify-center py-2 px-4 border border-transparent shadow-sm rounded-md text-white bg-indigo-600 focus:outline-none',
+            }"
+            @submit="uploadFile"
+          >
+            <!-- Screenshots -->
+            <h2 class="mb-4 text-xl">Select a Thumbnail</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+              <div class="border-8 cursor-pointer border-green-400">
+                <img src="assets/img/1.jpg" />
+              </div>
+              <div class="border-8 cursor-pointer border-transparent">
+                <img src="assets/img/2.jpg" />
+              </div>
+              <div class="border-8 cursor-pointer border-transparent">
+                <img src="assets/img/3.jpg" />
+              </div>
+            </div>
+
+            <!-- Title -->
+            <FormKit
+              outer-class="mt-4"
+              label="Title"
+              placeholder="Enter Title"
+              name="title"
+              label-class="block text-xl mb-4"
+              input-class="input"
+              validation="required"
+            />
+          </FormKit>
+        </div>
+      </template>
     </div>
   </section>
 </template>
