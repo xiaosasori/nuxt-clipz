@@ -7,5 +7,6 @@ declare interface Clip {
   title: string
   fileName: string
   url: string
+  screenshotURL: string
   timestamp: Timestamp
 }

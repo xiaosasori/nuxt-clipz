@@ -18,6 +18,27 @@ const isError = ref(false)
 const isSuccess = ref(false)
 const message = ref('')
 let uploadTask: UploadTask | undefined
+let screenshotTask: UploadTask | undefined
+
+async function blobFromURL(url: string) {
+  const response = await fetch(url)
+  const blob = await response.blob()
+
+  return blob
+}
+
+const ffmpegService = useFfmpeg()
+const screenshots = ref()
+const selectedScreenshot = ref()
+onBeforeMount(() => {
+  ffmpegService.init()
+})
+watch(selectedClip, async (newVal) => {
+  if (newVal.length > 0) {
+    screenshots.value = await ffmpegService.getScreenshots(newVal[0].file)
+    selectedScreenshot.value = screenshots.value[0]
+  }
+})
 
 async function uploadFile(credentials: any) {
   isUploading.value = true
@@ -25,8 +46,17 @@ async function uploadFile(credentials: any) {
   const extension = file.type.split('/').pop()
   const fileName = `${
     Math.random().toString(36).slice(2) + Date.now().toString(36)
-  }.${extension}`
-  const strRef = storageRef($firebaseStorage, `clips/${fileName}`)
+  }`
+  // upload screenshot
+  const screenshotBlob = await blobFromURL(selectedScreenshot.value)
+  const screenshotRef = storageRef(
+    $firebaseStorage,
+    `screenshots/${fileName}.png`
+  )
+  screenshotTask = uploadBytesResumable(screenshotRef, screenshotBlob)
+  // upload clip
+  const clipFileName = `${fileName}.${extension}`
+  const strRef = storageRef($firebaseStorage, `clips/${clipFileName}`)
   uploadTask = uploadBytesResumable(strRef, file)
   uploadTask.on(
     'state_changed',
@@ -43,7 +73,8 @@ async function uploadFile(credentials: any) {
       message.value = 'Upload failed! Please try again later.'
       console.error(error)
     },
-    () => {
+    async () => {
+      const screenshotURL = await getDownloadURL(screenshotTask!.snapshot.ref)
       // Upload completed successfully, now we can get the download URL
       getDownloadURL(uploadTask!.snapshot.ref)
         .then((downloadURL) => {
@@ -56,8 +87,9 @@ async function uploadFile(credentials: any) {
             uid: $firebaseAuth.currentUser?.uid,
             displayName: $firebaseAuth.currentUser?.displayName,
             title: credentials.title,
-            fileName,
+            fileName: clipFileName,
             url: downloadURL,
+            screenshotURL,
             timestamp: serverTimestamp(),
           }
           return addDoc(collection($firebaseDb, 'clips'), clip)
@@ -73,17 +105,6 @@ async function uploadFile(credentials: any) {
 
 onBeforeUnmount(() => {
   uploadTask?.cancel()
-})
-
-const ffmpegService = useFfmpeg()
-const screenshots = ref()
-onBeforeMount(() => {
-  ffmpegService.init()
-})
-watch(selectedClip, async (newVal) => {
-  if (newVal.length > 0) {
-    screenshots.value = await ffmpegService.getScreenshots(newVal[0].file)
-  }
 })
 </script>
 
@@ -144,7 +165,11 @@ watch(selectedClip, async (newVal) => {
               <div
                 v-for="screenshot in screenshots"
                 :key="screenshot"
-                class="border-8 cursor-pointer border-green-400"
+                class="border-8 cursor-pointer"
+                :class="{
+                  'border-green-400': selectedScreenshot === screenshot,
+                }"
+                @click="selectedScreenshot = screenshot"
               >
                 <img :src="screenshot" />
               </div>
