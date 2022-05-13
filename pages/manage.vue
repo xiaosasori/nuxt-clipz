@@ -44,7 +44,12 @@ function updateSuccess(title: string) {
 
 async function deleteClip(clip: Clip, index: number) {
   const strRef = storageRef($firebaseStorage, `clips/${clip.fileName}`)
+  const screenshotRef = storageRef(
+    $firebaseStorage,
+    `screenshots/${clip.screenshotFileName}`
+  )
   await Promise.all([
+    deleteObject(screenshotRef),
     deleteObject(strRef),
     deleteDoc(doc($firebaseDb, 'clips', clip.id)),
   ])

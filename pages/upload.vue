@@ -90,6 +90,7 @@ async function uploadFile(credentials: any) {
             fileName: clipFileName,
             url: downloadURL,
             screenshotURL,
+            screenshotFileName: `${fileName}.png`,
             timestamp: serverTimestamp(),
           }
           return addDoc(collection($firebaseDb, 'clips'), clip)
