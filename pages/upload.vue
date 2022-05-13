@@ -100,13 +100,25 @@ watch(selectedClip, async (newVal) => {
       <template v-else>
         <!-- Upload Dropbox -->
         <BUpload
-          v-if="selectedClip.length === 0"
+          v-if="!screenshots?.length"
           v-model:files="selectedClip"
           outer-class="w-full px-10 py-40 rounded text-center cursor-pointer border border-dashed border-gray-400 transition duration-500 hover:text-white hover:bg-indigo-400 hover:border-indigo-400 hover:border-solid text-xl"
           accept="video/*"
           outer-dragging-over-class="border-indigo-400 border-solid"
           input-dragging-over-class="bg-indigo-400"
-        />
+          :processing="ffmpegService.isRunning"
+        >
+          <template #label>
+            <div>Drop your file here</div>
+            <div v-if="ffmpegService.isRunning.value">
+              <span
+                class="material-icons text-center text-6xl p-8 animate-spin"
+              >
+                autorenew
+              </span>
+            </div>
+          </template>
+        </BUpload>
         <!-- Video Editor -->
         <div v-else>
           <div class="text-white text-center font-bold p-4 mb-4 rounded-md">

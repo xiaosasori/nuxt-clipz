@@ -109,7 +109,9 @@ export default {
       }"
     >
       <label :for="`dropzone-${inputKey}`" class="image-message">
-        <span v-show="files.length === 0">{{ label }}</span>
+        <slot name="label">
+          <span v-show="files.length === 0">{{ label }}</span>
+        </slot>
       </label>
       <input
         :id="`dropzone-${inputKey}`"
@@ -127,7 +129,6 @@ export default {
         @drop.prevent="onChange($event.dataTransfer.files), (dragging = false)"
       />
     </slot>
-    <slot />
   </div>
 </template>
 

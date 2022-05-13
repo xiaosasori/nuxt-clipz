@@ -2,6 +2,7 @@ import type { FFmpeg } from '@ffmpeg/ffmpeg'
 import { createFFmpeg, fetchFile } from '@ffmpeg/ffmpeg'
 
 const isReady = ref(false)
+const isRunning = ref(false)
 let ffmpeg: FFmpeg
 
 async function init() {
@@ -14,6 +15,7 @@ async function init() {
 }
 
 async function getScreenshots(file: File) {
+  isRunning.value = true
   const data = await fetchFile(file)
   ffmpeg.FS('writeFile', file.name, data)
   const seconds = [1, 2, 3]
@@ -48,10 +50,11 @@ async function getScreenshots(file: File) {
     const screenshotURL = URL.createObjectURL(screenshotBlob)
     screenshots.push(screenshotURL)
   })
+  isRunning.value = false
 
   return screenshots
 }
 
 export default function () {
-  return { init, getScreenshots, isReady }
+  return { init, getScreenshots, isReady, isRunning }
 }
