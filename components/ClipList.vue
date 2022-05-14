@@ -10,6 +10,7 @@ import {
   startAfter,
 } from 'firebase/firestore'
 import type { Clip } from '~~/types/Clip'
+import { convertFirebaseTimeStampToDate } from '~/helpers/utils'
 
 const { $firebaseDb } = useNuxtApp()
 const clips = ref<Clip[]>([])
@@ -80,7 +81,9 @@ useInfiniteScroll(list, getClips, { distance: 10 })
         <!-- Name & Date -->
         <p class="mb-0">
           {{ clip.displayName }} &#183;
-          <span class="text-gray-400">{{ clip.timestamp }}</span>
+          <span class="text-gray-400">{{
+            convertFirebaseTimeStampToDate(clip.timestamp)
+          }}</span>
         </p>
       </div>
     </NuxtLink>
