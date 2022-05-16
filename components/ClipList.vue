@@ -20,7 +20,9 @@ async function getClips() {
   const queryConstraint = [orderBy('timestamp', 'desc'), limit(limitItem)]
 
   if (clips.value.length) {
-    const lastItem = getDoc(doc($firebaseDb, 'clips', clips.value.at(-1)!.id))
+    const lastItem = await getDoc(
+      doc($firebaseDb, 'clips', clips.value.at(-1)!.id)
+    )
     queryConstraint.push(startAfter(lastItem))
   }
   const q = query(collection($firebaseDb, 'clips'), ...queryConstraint)
