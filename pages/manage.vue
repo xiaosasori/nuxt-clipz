@@ -90,19 +90,20 @@ async function deleteClip(clip: Clip, index: number) {
           class="mt-6 rounded-tl-2xl rounded-br-2xl shadow-xl bg-secondary flex flex-col justify-start"
         >
           <!-- Image -->
-          <a href="#">
+          <div>
             <img
               class="card-img-top rounded-tl-2xl w-full"
-              src="assets/img/1.jpg"
+              :src="clip.screenshotURL"
+              crossorigin="anonymous"
             />
-          </a>
+          </div>
 
           <!-- Body -->
           <div class="p-6 text-2xl">
             <!-- Link -->
-            <a href="#" class="font-bold mb-2">
+            <NuxtLink :to="`/clip/${clip.id}`" class="font-bold mb-2">
               {{ clip.title }}
-            </a>
+            </NuxtLink>
             <a
               href="#"
               class="bg-gray-400 text-white px-2 py-1 ml-2 text-sm rounded"
